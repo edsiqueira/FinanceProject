@@ -1,7 +1,0 @@
-D:\Projetos\FinancasProject\FinanceSolution\DTO\bin\Debug\netcoreapp3.0\DTO.deps.json
-D:\Projetos\FinancasProject\FinanceSolution\DTO\bin\Debug\netcoreapp3.0\DTO.dll
-D:\Projetos\FinancasProject\FinanceSolution\DTO\bin\Debug\netcoreapp3.0\DTO.pdb
-D:\Projetos\FinancasProject\FinanceSolution\DTO\obj\Debug\netcoreapp3.0\DTO.AssemblyInfoInputs.cache
-D:\Projetos\FinancasProject\FinanceSolution\DTO\obj\Debug\netcoreapp3.0\DTO.AssemblyInfo.cs
-D:\Projetos\FinancasProject\FinanceSolution\DTO\obj\Debug\netcoreapp3.0\DTO.dll
-D:\Projetos\FinancasProject\FinanceSolution\DTO\obj\Debug\netcoreapp3.0\DTO.pdb
