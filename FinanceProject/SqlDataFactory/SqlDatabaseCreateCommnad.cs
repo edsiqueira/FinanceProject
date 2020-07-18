@@ -263,5 +263,14 @@ namespace SqlDataFactory
             return paramList;
         }
 
+        public static List<IDbDataParameter> CreateParameterForGetAluguelPessoa(AluguelPessoa pAluguelPessoa, IDBManager dBManager)
+        {
+            List<IDbDataParameter> paramList = new List<IDbDataParameter>();
+            //paramList.Add(dBManager.CreateParameter("@CodigoId", pAluguelPessoa.ID, DbType.Int32));
+            paramList.Add(dBManager.CreateParameter("@MesNumber", pAluguelPessoa.MesID.MesNumber, DbType.Int32));
+            paramList.Add(dBManager.CreateParameter("@AnoNumber", pAluguelPessoa.AnoID.AnoNumber, DbType.Int32));
+            return paramList;
+        }
+
     }
 }

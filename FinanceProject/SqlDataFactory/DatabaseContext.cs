@@ -890,7 +890,10 @@ namespace SqlDataFactory
                 var command = SqlDatabaseCreateCommnad.CreateCommandForGetAll(pAluguelPessoa);
                 var storedProcedure = dBManager.CreateStoredProcedure(command, CommandType.StoredProcedure);
 
-                var dr = dBManager.GetDataReader(storedProcedure.CommandText, storedProcedure.CommandType, null, out cnVazio);
+
+                var paramList = SqlDatabaseCreateCommnad.CreateParameterForGetAluguelPessoa(pAluguelPessoa, dBManager);
+
+                var dr = dBManager.GetDataReader(storedProcedure.CommandText, storedProcedure.CommandType, paramList, out cnVazio);
 
                 List<AluguelPessoa> listAluguelPessoa = new List<AluguelPessoa>();
 

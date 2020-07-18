@@ -19,10 +19,10 @@ namespace RearlineLogicLayer
             
         //}
 
-        public HomeRearline(IAluguelBLL _aluguelBLL, IAguaBLL _aguaBLL, IAnoBLL _anoBLL, IContratoBLL _contratoBLL, IDespesaAvulsaBLL _despesaAvulsaBLL, IEnergiaBLL _energiaBLL, IMesBLL _mesBLL, 
+        public HomeRearline(IAluguelBLL _aluguelBLL, IAluguelPessoaBLL _aluguelPessoaBLL, IAguaBLL _aguaBLL, IAnoBLL _anoBLL, IContratoBLL _contratoBLL, IDespesaAvulsaBLL _despesaAvulsaBLL, IEnergiaBLL _energiaBLL, IMesBLL _mesBLL, 
             INetTvBLL _netTvBLL, IOrdenadoBLL _ordenadoBLL, IPlafondACBLL _plafondACBLL, ITelemovelBLL _telemovelBLL, 
             ITipoDespesaAvulsaBLL _tipoDespesaAvulsaBL, ITipoContratoBLL _tipoContratoBLL) :
-                       base(_aluguelBLL, _aguaBLL, _anoBLL, _contratoBLL, _despesaAvulsaBLL, _energiaBLL,  _mesBLL, _netTvBLL, _ordenadoBLL, _plafondACBLL, _telemovelBLL, _tipoDespesaAvulsaBL, _tipoContratoBLL)
+                       base(_aluguelBLL, _aluguelPessoaBLL, _aguaBLL, _anoBLL, _contratoBLL, _despesaAvulsaBLL, _energiaBLL,  _mesBLL, _netTvBLL, _ordenadoBLL, _plafondACBLL, _telemovelBLL, _tipoDespesaAvulsaBL, _tipoContratoBLL)
         {
 
         }
@@ -121,6 +121,11 @@ namespace RearlineLogicLayer
         public List<Aluguel> GetAllAluguel(Aluguel pAluguel = null)
         {
             return aluguelBLL.GetAll(pAluguel);
+        }
+
+        public List<AluguelPessoa> GetAllAluguelPessoa(AluguelPessoa pAluguelPessoa = null)
+        {
+            return aluguelPessoaBLL.GetAll(pAluguelPessoa);
         }
 
         public List<TipoDespesaAvulsa> GetAllTipoDespesaAvulsa(TipoDespesaAvulsa pTipoDespesaAvulsa = null)

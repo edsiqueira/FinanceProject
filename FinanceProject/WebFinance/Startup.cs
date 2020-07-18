@@ -40,6 +40,7 @@ namespace WebFinance
 
             services.AddScoped<IAguaBLL, AguaBLL>();
             services.AddScoped<IAluguelBLL, AluguelBLL>();
+            services.AddScoped<IAluguelPessoaBLL, AluguelPessoaBLL>();
             services.AddScoped<IAnoBLL, AnoBLL>();
             //services.AddScoped<ICreditoBLL, CreditoBLL>();
             services.AddScoped<IContratoBLL, ContratoBLL>();
@@ -61,8 +62,10 @@ namespace WebFinance
             //services.AddScoped<ITipoOperacaoBLL, TipoOperacaoBLL>();
             //services.AddScoped<ITransportesBLL, TransportesBLL>();
             services.AddScoped<ITipoContratoBLL, TipoContratoBLL>();
+
             services.AddScoped<IBaseRepository<Agua>, BaseRepository<Agua>>();
             services.AddScoped<IBaseRepository<Aluguel>, BaseRepository<Aluguel>>();
+            services.AddScoped<IBaseRepository<AluguelPessoa>, BaseRepository<AluguelPessoa>>();
             services.AddScoped<IBaseRepository<Ano>, BaseRepository<Ano>>();
             //services.AddScoped<IBaseRepository<Credito>, BaseRepository<Credito>>();
             services.AddScoped<IBaseRepository<Contrato>, BaseRepository<Contrato>>();

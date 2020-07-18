@@ -69,12 +69,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    @*<tr>
                         <td>Mário</td>
                         <td>130€</td>
                         <td>A</td>
                         <td>D</td>
-                    </tr>
+                    </tr>*@
                 </tbody>
             </table>
 
@@ -86,17 +86,17 @@
 
 
 
-<div id="simulator" class="full-form">
+@*<div id="simulator" class="full-form">
     <h1 class="title-align">Simulator</h1>
     <div class="form-left">
 
-        <label name="Valor">Valor da renda</label>
-        <input class="form-control" name="Valor" type="text" />
+        <label name="Total">Valor da renda</label>
+        <input id="total" class="form-control" name="Total" type="text" />
 
-        <label name="Valor">Nº pessoas</label>
-        <input class="form-control" name="Valor" type="text" />
+        <label name="NumPessoas">Nº pessoas</label>
+        <input class="form-control" name="NumPessoas" type="text" />
 
-        <label name="Valor">Valor lucas</label>
+        <label name="ValorLucas">Valor lucas</label>
         <input class="form-control" name="Valor" type="text" />
 
         <label name="Valor">Valor mario</label>
@@ -129,7 +129,7 @@
     </div>
 
  
-</div>
+</div>*@
 
 
 <script>
@@ -138,31 +138,32 @@
         LoadYearMonth();
 
 
-        //function loadAluguel() {
-        //    var table = $('#tableAluguel');
-        //    clearTable(table);
+        function loadAluguel() {
+            var table = $('#tableDivisaoAluguel');
+            clearTable(table);
 
-        //    $.ajax({
-        //        url: "Home/GetAllAluguel",
-        //        type: "GET",
-        //        contentType: "application/json; charset=utf-8",
+            $.ajax({
+                url: "Home/GetAllAluguelPessoa",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
 
-        //        dataType: "json"
+                dataType: "json"
 
-        //    }).done(function (data) {
-        //        $(data).each(function (i, item) {
-        //            $(table).find('tbody').append('<tr>');
-        //            var tr = $(table).find('tbody tr')[i];
-        //            $(tr).append('<td>' + item.valor + ' €</td>');
-        //            $(tr).append('<td>' + item.descricao + '</td>');
+            }).done(function (data) {
+                $(data).each(function (i, item) {
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    $(tr).append('<td>' + item.valor + ' €</td>');
+                    $(tr).append('<td>' + item.descricao + '</td>');
 
-        //            $(tr).append('<td>' + item.mesID.mesName + '</td>');
-        //            $(tr).append('<td>' + item.anoID.anoNumber + '</td>');
-        //            //$(tr).append('<td>' + item.fimContrato + '</td>');
+                    $(tr).append('<td>' + item.mesID.mesName + '</td>');
+                    $(tr).append('<td>' + item.anoID.anoNumber + '</td>');
+                    //$(tr).append('<td>' + item.fimContrato + '</td>');
 
-        //        });
-        //    });
-        //};
+                });
+            });
+        };
+
         $('#AluguelSubmit').click(function (e) {
             e.preventDefault();
             var pAluguel = {
@@ -228,18 +229,12 @@
                 dataType: "json"
 
             }).done(function (data) {
-                //loadAluguel();
+                loadAluguel();
             })
          });
-
+        loadAluguel();
     });
 
-      
 
-
-       
-    
-        //loadAluguel();
-    //});
 
 </script>

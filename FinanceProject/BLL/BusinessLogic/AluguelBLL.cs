@@ -35,7 +35,7 @@ namespace BLL.BusinessLogic
             if (pAluguel == null)
             {
                 pAluguel = Aluguel.CreateInstance();
-                pAluguel.AnoID.AnoNumber = 2020;
+                pAluguel.AnoID.AnoNumber = DateTime.Now.Year;
             }
             return baseRepository.GetAll(pAluguel);
         }

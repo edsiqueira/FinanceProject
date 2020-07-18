@@ -263,6 +263,12 @@ namespace WebFinance.Controllers
         {
             return Json(_rearline.GetAllAluguel());
         }
+
+        [HttpGet]
+        public IActionResult GetAllAluguelPessoa()
+        {
+            return Json(_rearline.GetAllAluguelPessoa());
+        }
         [HttpGet]
         public IActionResult GetAllTipoDespesaAvulsa()
         {

@@ -9,6 +9,7 @@ namespace RearlineLogicLayer
     {
         protected readonly IAguaBLL aguaBLL;
         protected readonly IAluguelBLL aluguelBLL;
+        protected readonly IAluguelPessoaBLL aluguelPessoaBLL;
         protected readonly IAnoBLL anoBLL;
         protected readonly IContratoBLL contratoBLL;
         //protected readonly ICreditoBLL creditoBLL;
@@ -64,12 +65,13 @@ namespace RearlineLogicLayer
 
         //}
 
-        public BaseHomeRearline(IAluguelBLL _aluguelBLL, IAguaBLL _aguaBLL, IAnoBLL _anoBLL, IContratoBLL _contratoBLL, IDespesaAvulsaBLL _despesaAvulsaBLL,
+        public BaseHomeRearline(IAluguelBLL _aluguelBLL, IAluguelPessoaBLL _aluguelPessoaBLL, IAguaBLL _aguaBLL, IAnoBLL _anoBLL, IContratoBLL _contratoBLL, IDespesaAvulsaBLL _despesaAvulsaBLL,
                                 IEnergiaBLL _energiaBLL, IMesBLL _mesBLL, INetTvBLL _netTvBLL, IOrdenadoBLL _ordenadoBLL, IPlafondACBLL _plafondACBLL,
                                ITelemovelBLL _telemovelBLL, ITipoDespesaAvulsaBLL _tipoDespesaAvulsaBLL, ITipoContratoBLL _tipoContratoBLL)
         {
             aguaBLL = _aguaBLL;
             aluguelBLL = _aluguelBLL;
+            aluguelPessoaBLL = _aluguelPessoaBLL;
             anoBLL = _anoBLL;
             contratoBLL = _contratoBLL;
             despesaAvulsaBLL = _despesaAvulsaBLL;

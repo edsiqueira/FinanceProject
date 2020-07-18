@@ -15,6 +15,7 @@ namespace RearlineLogicLayer
         List<Telemovel> GetAllTelemovel(Telemovel pTelemovel = null);
         List<NetTV> GetAllNetTV(NetTV pNetTV = null);
         List<Aluguel> GetAllAluguel(Aluguel pAluguel = null);
+        List<AluguelPessoa> GetAllAluguelPessoa(AluguelPessoa pAluguelPessoa = null);
         List<TipoDespesaAvulsa> GetAllTipoDespesaAvulsa(TipoDespesaAvulsa pTipoDespesaAvulsa = null);
         List<DespesaAvulsa> GetAllDespesaAvulsa(DespesaAvulsa pDespesaAvulsa = null);
         List<Contrato> GetAllContrato(Contrato pContrato = null);
