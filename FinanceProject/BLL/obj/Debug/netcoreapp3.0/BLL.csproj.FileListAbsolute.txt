@@ -1,0 +1,13 @@
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\BLL.deps.json
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\BLL.dll
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\BLL.pdb
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\DTO.dll
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\ISqlDataFactory.dll
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\DTO.pdb
+D:\Projetos\FinancasProject\FinanceSolution\BLL\bin\Debug\netcoreapp3.0\ISqlDataFactory.pdb
+D:\Projetos\FinancasProject\FinanceSolution\BLL\obj\Debug\netcoreapp3.0\BLL.csprojAssemblyReference.cache
+D:\Projetos\FinancasProject\FinanceSolution\BLL\obj\Debug\netcoreapp3.0\BLL.AssemblyInfoInputs.cache
+D:\Projetos\FinancasProject\FinanceSolution\BLL\obj\Debug\netcoreapp3.0\BLL.AssemblyInfo.cs
+D:\Projetos\FinancasProject\FinanceSolution\BLL\obj\Debug\netcoreapp3.0\BLL.csproj.CopyComplete
+D:\Projetos\FinancasProject\FinanceSolution\BLL\obj\Debug\netcoreapp3.0\BLL.dll
+D:\Projetos\FinancasProject\FinanceSolution\BLL\obj\Debug\netcoreapp3.0\BLL.pdb

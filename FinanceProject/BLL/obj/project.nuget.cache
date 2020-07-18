@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JmbEWeplR2yCPIqNOqR4MRQ3N5YF4ShbUN5jOyhstah0JSxyqTep+KA4Hzp1LqSAT+xFSpJXJkZZ5UobZ8Nc7w==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\FinancasProject\\FinanceSolution\\BLL\\BLL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Utilizador\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
