@@ -1,0 +1,85 @@
+﻿
+<script src="~/js/jquery/jquery.min.js"></script>
+<div id="despesasFixasPanel" class="content">
+
+</div>
+
+
+<script>
+    function clearTable(table) {
+        if ($(table).find('tbody').find('tr').length > 0) {
+            $(table).find('tbody').find('tr').remove();
+        }
+    }
+
+    $('.lateral-menu a').click(function (e) {
+        e.preventDefault();
+        var viewName = $(this).attr('href')
+        viewName = viewName.substring(1, viewName.length);
+        
+        var form = $('#despesasFixasPanel')
+
+        $.ajax({
+            url: '/Home/'+ viewName +'PartialView',
+            dataType: 'html',
+            success: function(data) {
+                $(form).html(data);
+            }
+        });
+    });
+
+    function LoadYearMonth() {
+        $.ajax({
+            url: "Home/GetAllAno",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+
+            dataType: "json"
+
+        }).done(function (data) {
+            var dropdown = ('#AnoDropDown');
+            $(dropdown).append('<option>')
+            $(data).each(function (i, item) {
+                $(dropdown).append('<option value=' + item.anoNumber + '>' + item.anoNumber + '</option>')
+            })
+        });
+
+
+        $.ajax({
+            url: "Home/GetAllMes",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+
+            dataType: "json"
+
+        }).done(function (data) {
+            var dropdown = ('#MesDropDown');
+            $(dropdown).append('<option>')
+            $(data).each(function (i, item) {
+                $(dropdown).append('<option value=' + item.mesNumber + '>' + item.mesName + '</option>')
+            })
+        });
+    }
+
+    function loadTipoDespesaAvulsa() {
+
+         if ($('#tipoDespesaDropDown').find('option').length > 0) {
+            $('#tipoDespesaDropDown').find('option').remove();
+        }
+
+        $.ajax({
+            url: "Home/GetAllTipoDespesaAvulsa",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+
+            dataType: "json"
+
+        }).done(function (data) {
+            var dropdown = ('#tipoDespesaDropDown');
+            $(dropdown).append('<option>')
+            $(data).each(function (i, item) {
+                $(dropdown).append('<option value=' + item.codDespesa + '>' + item.nome + '</option>')
+            })
+        });
+    }
+</script>

@@ -1,0 +1,342 @@
+﻿
+    <div id="tipoContrato">
+        <form id="tipoContratoForm" class="form">
+            <h1>Tipo de Contrato</h1>
+            <div class="form-left">
+                <label name="Descricao">Descricao</label>
+                <input id="tipoContratoDescricao" class="form-control" name="Descricao" type="text" />
+
+                <label name="Codigo">Codigo</label>
+                <input id="tipoContratoCodigo" class="form-control" name="Codigo" type="text" />
+
+                <label name="Empresa">Empresa</label>
+                <input id="tipoContratoEmpresa" class="form-control" name="Empresa" type="text" />
+            </div>
+
+            <div class="form-right">
+                <table id="tableTipoContrato" class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Descricao</th>
+                            <th>Empresa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </form>
+        <div class="buttons">
+            <button type="button" class="btn btn-outline-secondary btn-lg">Limpar</button>
+            <button id="tipoContratoSubmit" type="button" class="btn btn-outline-primary btn-lg">Cadastrar</button>
+
+        </div>
+    </div>
+
+
+<div id="tipoDespesaAvulsa">
+    <form id="tipoDespesaAvulsaForm" class="form">
+        <h1>Tipo de Despesa Avulsa</h1>
+        <div class="form-left">
+            <label name="Descricao">Descricao</label>
+            <input id="tipoDespesaAvulsaDescricao" class="form-control" name="Descricao" type="text" />
+
+            <label name="Codigo">Codigo</label>
+            <input id="tipoDespesaAvulsaCodigo" class="form-control" name="Codigo" type="text" />
+        </div>
+        <div class="form-right">
+            <table id="tableTipoDespesaAvulsa" class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th>Descricao</th>
+                        <th>Codigo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="buttons">
+            <button type="button" class="btn btn-outline-secondary btn-lg">Limpar</button>
+            <button id="tipoDespesaAvulsaSubmit" type="button" class="btn btn-outline-primary btn-lg">Cadastrar</button>
+        </div>
+    </form>
+</div>
+
+<div id="plafondAC">
+    <form id="plafondACForm" class="form">
+        <h1>Plafond AC</h1>
+        <div class="form-left ">
+            <label name="Total">Total</label>
+            <input id="plafondACTotal" class="form-control" name="Litros" type="text" />
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Ano</label>
+            <select id="AnoDropDown" class="custom-select mr-sm-2">
+            </select>
+
+        </div>
+        <div class="form-right ">
+            <table id="tablePlafondAC" class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th>ValorMensal</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </form>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-secondary btn-lg">Limpar</button>
+        <button id="plafondACSubmit" type="button" class="btn btn-outline-primary btn-lg">Cadastrar</button>
+
+    </div>
+
+</div>
+
+<div id="contrato">
+    <form id="contratoForm" class="form">
+        <h1>Contrato</h1>
+        <div class="form-left">
+            <label name="DataInicio">DataInicio</label>
+            <input id="contratoDataInicio" class="form-control" name="DataInicio" type="date" />
+
+            <label name="DataFim">DataFim</label>
+            <input id="contratoDataFim" class="form-control" name="DataFim" type="date" />
+
+            <label name="NumeroContrato">NumeroContrato</label>
+            <input id="contratoNumeroContrato" class="form-control" name="NumeroContrato" type="text" />
+
+            <label name="tipoContrato">TipoContrato</label>
+            <select id="tipoContratoDropDown" class="custom-select mr-sm-2"></select>
+        </div>
+
+        <div class="form-right">
+            <table id="tableContrato" class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th>Descricao</th>
+                        <th>Data fim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </form>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-secondary btn-lg">Limpar</button>
+        <button id="ContratoSubmit" type="button" class="btn btn-outline-primary btn-lg">Cadastrar</button>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        LoadYearMonth();
+        function loadPlafondAC() {
+            var table = $('#tablePlafondAC');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllPlafondAC",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+
+                dataType: "json"
+
+            }).done(function (data) {
+                $(data).each(function (i, item) {
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    //$(tr).append('<td>' + item.valorDisponivel + ' €</td>');
+                    $(tr).append('<td>' + item.valorMensal + ' €</td>');
+                    $(tr).append('<td>' + item.total + ' €</td>');
+                    //$(tr).append('<td>' + item.anoID.anoNumber + '</td>');
+                });
+            })
+        };
+
+        function loadTipoDespesaAvulsa() {
+
+            if ($('#tipoDespesaDropDown').find('option').length > 0) {
+                $('#tipoDespesaDropDown').find('option').remove();
+            }
+            var table = $('#tableTipoDespesaAvulsa');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllTipoDespesaAvulsa",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+
+                dataType: "json"
+
+            }).done(function (data) {
+                var dropdown = ('#tipoDespesaDropDown');
+                $(dropdown).append('<option>')
+                $(data).each(function (i, item) {
+                    $(dropdown).append('<option value=' + item.codDespesa + '>' + item.nome + '</option>');
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    $(tr).append('<td>' + item.nome + '</td>');
+                    $(tr).append('<td>' + item.codDespesa + '</td>');
+                    
+                    console.log(item);
+                })
+            });
+        };
+
+        function loadTipoContrato() {
+
+            if ($('#tipoContratoDropDown').find('option').length > 0) {
+                $('#tipoContratoDropDown').find('option').remove();
+            }
+            var table = $('#tableTipoContrato');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllTipoContrato",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+
+                dataType: "json"
+
+                }).done(function (data) {
+                    var dropdown = ('#tipoContratoDropDown');
+                    $(dropdown).append('<option>')
+                    $(data).each(function (i, item) {
+                        $(dropdown).append('<option value=' + item.codTipoContrato + '>' + item.descricaoTipoContrato + '</option>')
+
+                        $(table).find('tbody').append('<tr>');
+                        var tr = $(table).find('tbody tr')[i];
+                        $(tr).append('<td>' + item.descricaoTipoContrato + '</td>');
+                        $(tr).append('<td>' + item.empresa + '</td>');
+                    })
+                });
+        };
+
+        function loadContrato() {
+            var table = $('#tableContrato');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllContrato",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+
+                dataType: "json"
+
+            }).done(function (data) {
+                $(data).each(function (i, item) {
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    //$(tr).append('<td>' + item.dataInicio.slice(0, 10) + '</td>');
+                    //
+                    $(tr).append('<td>' + item.tipoContratoID.descricaoTipoContrato + '</td>');
+                    //$(tr).append('<td>' + item.numeroContrato + '</td>');
+                    $(tr).append('<td>' + item.dataFim.slice(0, 10) + '</td>');
+                    //$(tr).append('<td>' + item.ativo + '</td>');
+
+                });
+            })
+        };
+
+
+
+
+        $('#ContratoSubmit').click(function (e) {
+            e.preventDefault();
+            var pTvNet = {
+                Descricao: $('#contratoDescricao').val(),
+                Valor: $('#contratoValor').val(),
+                DataInicio: $('#contratoDataInicio').val(),
+                DataFim: $('#contratoDataFim').val(),
+                NumeroContrato: $('#contratoNumeroContrato').val(),
+                TipoContratoID: {
+                    CodTipoContrato: $('#tipoContratoDropDown').val(),
+                },
+            };
+
+            $.ajax({
+                url: "Home/AddContrato",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(pTvNet),
+                dataType: "json"
+
+            }).done(function (data) {
+                loadContrato();
+            })
+        });
+
+
+
+        $('#plafondACSubmit').click(function (e) {
+            e.preventDefault();
+            var pPlafondAC = {
+                Total: $('#plafondACTotal').val().replace(',', '.'),
+                AnoID: {
+                    AnoNumber: $('#AnoDropDown').val()
+                }
+            };
+            $.ajax({
+                url: "Home/AddPlafondAC",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(pPlafondAC),
+                dataType: "json"
+
+            }).done(function (data) {
+                loadPlafondAC();
+            })
+        });
+
+        $('#tipoDespesaAvulsaSubmit').click(function (e) {
+            e.preventDefault();
+            var pTipoDespesaAvulsa = {
+                Nome: $('#tipoDespesaAvulsaDescricao').val(),
+                CodDespesa: $('#tipoDespesaAvulsaCodigo').val()
+            };
+
+            $.ajax({
+            url: "Home/AddTipoDespesaAvuslsa",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(pTipoDespesaAvulsa),
+            dataType: "json"
+
+        }).done(function (data) {
+            loadTipoDespesaAvulsa();
+            })
+        });
+
+         $('#tipoContratoSubmit').click(function (e) {
+            e.preventDefault();
+            var pTipoContrato = {
+                DescricaoTipoContrato: $('#tipoContratoDescricao').val(),
+                Empresa: $('#tipoContratoEmpresa').val(),
+                CodTipoContrato: $('#tipoContratoCodigo').val()
+            };
+
+            $.ajax({
+            url: "Home/AddTipoContrato",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(pTipoContrato),
+            dataType: "json"
+
+            }).done(function (data) {
+                loadTipoContrato();
+            })
+        });
+
+        loadPlafondAC();
+        loadContrato();
+        loadTipoDespesaAvulsa();
+        loadTipoContrato();
+    });
+</script>

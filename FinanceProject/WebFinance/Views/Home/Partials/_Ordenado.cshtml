@@ -1,0 +1,113 @@
+﻿<form id="ordenadoForm">
+    <label name="Base">Base</label>
+    <input id="ordenadoBase" name="Base" type="text" />
+
+    <label name="AjudasCusto">AjudasCusto</label>
+    <input id="ordenadoAjudasCusto" name="AjudasCusto" type="text" />
+
+    <label name="DuodecimosFerias">DuodecimosFerias</label>
+    <input id="ordenadoDuodecimosFerias" name="DuodecimosFerias" type="text" />
+
+    <label name="DuodecimosNatal">DuodecimosNatal</label>
+    <input id="ordenadoDuodecimosNatal" name="DuodecimosNatal" type="text" />
+
+    <label name="SubsidioRefeicao">SubsidioRefeicao</label>
+    <input id="ordenadoSubsidioRefeicao" name="SubsidioRefeicao" type="text" />
+
+    <label name="SegurancaSocial">SegurancaSocial</label>
+    <input id="ordenadoSegurancaSocial" name="SegurancaSocial" type="text" />
+
+    <label name="IRS">IRS</label>
+    <input id="ordenadoIRS" name="IRS" type="text" />
+
+    <label name="DataRececao">DataRececao</label>
+    <input id="ordenadoDataRececao" name="DataRececao" type="date" />
+
+    <button id="ordenadoSubmit">Criar</button>
+</form>
+
+<div class="tableGanhos">
+    <table id="tableOrdenado" class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>Total</th>
+                <th>ValorAC</th>
+                <th>Mes</th>
+                <th>Ano</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script>
+
+
+
+
+   
+
+    $(document).ready(function () {
+
+        function loadOrdenado() {
+            var table = $('#tableOrdenado');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllOrdenado",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+
+                dataType: "json"
+
+            }).done(function (data) {
+                $(data).each(function (i, item) {
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    $(tr).append('<td>' + SalaryCalc(item) + ' €</td>');
+                    $(tr).append('<td>' + item.ajudasCusto + ' €</td>');
+                    $(tr).append('<td>' + item.mesID.mesName + '</td>');
+                    $(tr).append('<td>' + item.anoID.anoNumber + '</td>');
+                });
+            });
+        }
+
+        function SalaryCalc(data) {
+            var total = (data.base + data.ajudasCusto + data.duodecimosFerias + data.duodecimosNatal +
+                data.subsidioRefeicao) - (data.irs + data.segurancaSocial);
+            return total;
+        }
+
+        $('#ordenadoSubmit').click(function (e) {
+            e.preventDefault();
+            var pOrdenado = {
+                Base: $('#ordenadoBase').val().replace(',','.'),
+                AjudasCusto: $('#ordenadoAjudasCusto').val().replace(',','.'),
+                DuodecimosFerias: $('#ordenadoDuodecimosFerias').val().replace(',','.'),
+                DuodecimosNatal: $('#ordenadoDuodecimosNatal').val().replace(',','.'),
+                SubsidioRefeicao: $('#ordenadoSubsidioRefeicao').val().replace(',','.'),
+                SegurancaSocial: $('#ordenadoSegurancaSocial').val().replace(',','.'),
+                IRS: $('#ordenadoIRS').val().replace(',','.'),
+                DataRececao: $('#ordenadoDataRececao').val(),
+                AnoID: {
+                        AnoNumber: $('#AnoDropDown').val(),
+                    },
+                MesID: {
+                    MesNumber: $('#MesDropDown').val()
+                }
+            };
+
+            $.ajax({
+                url: "Home/AddOrdenado",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(pOrdenado),
+                dataType: "json"
+            }).done(function (data) {
+                    loadOrdenado();
+            })
+        });
+
+        loadOrdenado()
+    });
+</script>

@@ -1,0 +1,124 @@
+﻿
+<div id="charts">
+    <p>InserirCharAqui</p>
+</div>
+<div id="cards">
+    <p>InserirCardsAqui</p>
+</div>
+<div id="tables">
+    <div class="divTables">
+        <table id="tableAgua" class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Valor</th>
+                    <th>Litros</th>
+                    <th>ProximaLeitura</th>
+                    <th>Mes</th>
+                    <th>Ano</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="despesasFixas">
+
+    <form id="aguaForm" class="form">
+        <h1>Nova despesa</h1>
+        <div class="form-left ">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Ano</label>
+            <select id="AnoDropDown" class="custom-select mr-sm-2">
+            </select>
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Mes</label>
+            <select id="MesDropDown" class="custom-select mr-sm-2">
+            </select>
+            <label class="mr-sm-2" name="InicioFaturacao">Inicio faturacao</label>
+            <input type="date" class="form-control" id="InicioFaturacao">
+            <label class="mr-sm-2" name="FimFaturacao">Fim faturacao</label>
+            <input type="date" class="form-control" id="FimFaturacao">
+        </div>
+        <div class="form-right">
+            <label for="aguaLitros">Litros</label>
+            <input type="text" class="form-control" id="aguaLitros" placeholder="Total consumido">
+            <label for="aguaValor">Valor</label>
+            <input type="text" class="form-control" id="aguaValor" placeholder="Total pago">
+            <label for="aguaLitrosRegistados">Litros registados</label>
+            <input type="text" class="form-control" id="aguaLitrosRegistados" placeholder="Total no registo">
+            <label for="aguaProximaLeitura">Proxima leitura</label>
+            <input type="date" class="form-control" id="aguaProximaLeitura">
+        </div>
+
+    </form>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-secondary btn-lg">Limpar</button>
+        <button id="aguaSubmit" type="button" class="btn btn-outline-primary btn-lg">Cadastrar</button>
+
+    </div>
+</div>
+
+
+
+<script>
+    var d = new Date();
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+    var todayDate = year + '-' + '0' + month + '-' + day;
+    $(document).ready(function () {
+        LoadYearMonth();
+        function loadAgua() {
+            var table = $('#tableAgua');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllAgua",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+
+            }).done(function (data) {
+                $(data).each(function (i, item) {
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    $(tr).append('<td>' + item.valor + ' €</td>');
+                    $(tr).append('<td>' + item.litros + ' L</td>');
+                    $(tr).append('<td>' + item.dataProximaLeitura.slice(0, 10) + '</td>');
+                    $(tr).append('<td>' + item.mesID.mesName + '</td>');
+                    $(tr).append('<td>' + item.anoID.anoNumber + '</td>');
+                });
+            })
+        }
+
+        $('#aguaSubmit').click(function (e) {
+            e.preventDefault();
+            var pAgua = {
+                Valor: $('#aguaValor').val().replace(',','.'),
+                Litros: $('#aguaLitros').val(),
+                DataProximaLeitura: $('#aguaProximaLeitura').val(),
+                FimFaturacao: $('#FimFaturacao').val(),
+                InicioFaturacao: $('#InicioFaturacao').val(),
+                AnoID: {
+                    AnoNumber: $('#AnoDropDown').val(),
+                },
+                MesID: {
+                    MesNumber: $('#MesDropDown').val()
+                }
+            };
+            console.log(pAgua);
+
+            $.ajax({
+                url: "Home/AddAgua",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(pAgua),
+                dataType: "json"
+            }).done(function (data) {
+                    loadAgua();
+            }).fail(function (data) {
+            })
+        });
+
+        loadAgua();
+    })
+</script>

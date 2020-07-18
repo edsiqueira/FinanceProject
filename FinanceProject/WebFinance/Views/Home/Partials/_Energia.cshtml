@@ -1,0 +1,134 @@
+﻿<div id="charts">
+    <p>InserirCharAqui</p>
+</div>
+<div id="cards">
+    <p>InserirCardsAqui</p>
+</div>
+<div id="tables">
+    <div class="divTables">
+        <table id="tableEnergia" class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Valor</th>
+                    <th>Vazio</th>
+                    <th>Ponta</th>
+                    <th>Cheia</th>
+
+                    <th>KwTotal</th>
+                    <th>Mes</th>
+                    <th>Ano</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="despesasFixas">
+    <form id="energiaForm" class="form">
+
+        <h1>Nova despesa</h1>
+        <div class="form-left ">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Ano</label>
+            <select id="AnoDropDown" class="custom-select mr-sm-2">
+            </select>
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Mes</label>
+            <select id="MesDropDown" class="custom-select mr-sm-2">
+            </select>
+            <label class="mr-sm-2" name="InicioFaturacao">Inicio faturacao</label>
+            <input type="date" class="form-control" id="InicioFaturacao">
+            <label class="mr-sm-2" name="FimFaturacao">Fim faturacao</label>
+            <input type="date" class="form-control" id="FimFaturacao">
+        </div>
+
+        <div class="form-right">
+            <label name="Vazio">Vazio</label>
+            <input id="energiaVazio" class="form-control" name="Vazio" type="text" placeholder="Kw/h em Vazio" />
+
+            <label name="Ponta">Ponta</label>
+            <input id="energiaPonta" class="form-control" name="Ponta" type="text" placeholder="Kw/h em Ponta" />
+
+            <label name="Cheia">Cheia</label>
+            <input id="energiaCheia" class="form-control" name="Cheia" type="text" placeholder="Kw/h em Cheia" />
+
+            <label name="Valor">Valor</label>
+            <input id="energiaValor" class="form-control" name="Valor" type="text" placeholder="Valor total" />
+        </div>
+
+    </form>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-secondary btn-lg">Limpar</button>
+        <button id="energiaSubmit" type="button" class="btn btn-outline-primary btn-lg">Cadastrar</button>
+
+    </div>
+</div>
+
+
+<script>
+
+
+    $(document).ready(function () {
+         LoadYearMonth();
+
+        function loadEnergia() {
+            var table = $('#tableEnergia');
+            clearTable(table);
+
+            $.ajax({
+                url: "Home/GetAllEnergia",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+
+                dataType: "json"
+
+            }).done(function (data) {
+                $(data).each(function (i, item) {
+                    $(table).find('tbody').append('<tr>');
+                    var tr = $(table).find('tbody tr')[i];
+                    $(tr).append('<td>' + item.valor + ' €</td>');
+                    $(tr).append('<td>' + item.vazio + ' Kw</td>');
+                    $(tr).append('<td>' + item.ponta + ' Kw</td>');
+                    $(tr).append('<td>' + item.cheia + ' Kw</td>');
+
+                    $(tr).append('<td>' + item.kwTotal + ' Kw</td>');
+
+
+                    $(tr).append('<td>' + item.mesID.mesName + '</td>');
+                    $(tr).append('<td>' + item.anoID.anoNumber + '</td>');
+                });
+            })
+        }
+
+        $('#energiaSubmit').click(function (e) {
+            e.preventDefault();
+            var pEnergia = {
+                Vazio: $('#energiaVazio').val().replace(',', '.'),
+                Ponta: $('#energiaPonta').val().replace(',', '.'),
+                Cheia: $('#energiaCheia').val().replace(',', '.'),
+                Valor: $('#energiaValor').val().replace(',', '.'),
+                //KwTotal: $('#energiaKwTotal').val().replace(',', '.'),
+                FimFaturacao: $('#FimFaturacao').val(),
+                InicioFaturacao: $('#InicioFaturacao').val(),
+                AnoID: {
+                    AnoNumber: $('#AnoDropDown').val(),
+                },
+                MesID: {
+                    MesNumber: $('#MesDropDown').val()
+                }
+            };
+
+            $.ajax({
+                url: "Home/AddEnergia",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(pEnergia),
+                dataType: "json"
+
+            }).done(function (data) {
+                loadEnergia();
+            })
+        });
+
+        loadEnergia();
+    });
+</script>
