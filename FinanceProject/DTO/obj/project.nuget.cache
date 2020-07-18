@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1vghdgLuMvdqJ3DqUZENjp+YHKHBdVE3EihMOqsVERHtqGLfKOTvny4tEOP1eKHNIzHeZ9cs6E2SzYyzUH3EoA==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\FinancasProject\\FinanceSolution\\DTO\\DTO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Utilizador\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,11 @@
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\bin\Debug\netcoreapp3.0\ISqlDataFactory.deps.json
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\bin\Debug\netcoreapp3.0\ISqlDataFactory.dll
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\bin\Debug\netcoreapp3.0\ISqlDataFactory.pdb
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\bin\Debug\netcoreapp3.0\DTO.dll
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\bin\Debug\netcoreapp3.0\DTO.pdb
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\obj\Debug\netcoreapp3.0\ISqlDataFactory.csprojAssemblyReference.cache
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\obj\Debug\netcoreapp3.0\ISqlDataFactory.AssemblyInfoInputs.cache
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\obj\Debug\netcoreapp3.0\ISqlDataFactory.AssemblyInfo.cs
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\obj\Debug\netcoreapp3.0\ISqlDataFactory.csproj.CopyComplete
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\obj\Debug\netcoreapp3.0\ISqlDataFactory.dll
+D:\Projetos\FinancasProject\FinanceSolution\ISqlDataFactory\obj\Debug\netcoreapp3.0\ISqlDataFactory.pdb

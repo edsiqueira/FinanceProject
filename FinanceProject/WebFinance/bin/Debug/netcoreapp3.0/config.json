@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    //NÃO USAR
+    "DataContext": "Data Source=DESKTOP-BL8GKC8;Initial Catalog=despesas_ds010;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}

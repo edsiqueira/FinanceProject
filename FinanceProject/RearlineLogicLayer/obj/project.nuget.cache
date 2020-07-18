@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GIjgWMt54DGf0bVApY2n0XhBRdzEiBK9/NZnBogJokpxtyxzCipOuWoEAcyeAdq6t2OmPMfNMmZN1p668mty6A==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\FinancasProject\\FinanceSolution\\RearlineLogicLayer\\RearlineLogicLayer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Utilizador\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

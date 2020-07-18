@@ -1,0 +1,15 @@
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\RearlineLogicLayer.deps.json
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\RearlineLogicLayer.dll
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\RearlineLogicLayer.pdb
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\BLL.dll
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\DTO.dll
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\ISqlDataFactory.dll
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\BLL.pdb
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\DTO.pdb
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\bin\Debug\netcoreapp3.0\ISqlDataFactory.pdb
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\obj\Debug\netcoreapp3.0\RearlineLogicLayer.csprojAssemblyReference.cache
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\obj\Debug\netcoreapp3.0\RearlineLogicLayer.AssemblyInfoInputs.cache
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\obj\Debug\netcoreapp3.0\RearlineLogicLayer.AssemblyInfo.cs
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\obj\Debug\netcoreapp3.0\RearlineLogicLayer.csproj.CopyComplete
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\obj\Debug\netcoreapp3.0\RearlineLogicLayer.dll
+D:\Projetos\FinancasProject\FinanceSolution\RearlineLogicLayer\obj\Debug\netcoreapp3.0\RearlineLogicLayer.pdb
