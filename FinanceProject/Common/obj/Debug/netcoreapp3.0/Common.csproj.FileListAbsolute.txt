@@ -1,0 +1,11 @@
+D:\Projetos\FinancasProject\FinanceSolution\Common\bin\Debug\netcoreapp3.0\Common.deps.json
+D:\Projetos\FinancasProject\FinanceSolution\Common\bin\Debug\netcoreapp3.0\Common.dll
+D:\Projetos\FinancasProject\FinanceSolution\Common\bin\Debug\netcoreapp3.0\Common.pdb
+D:\Projetos\FinancasProject\FinanceSolution\Common\bin\Debug\netcoreapp3.0\DTO.dll
+D:\Projetos\FinancasProject\FinanceSolution\Common\bin\Debug\netcoreapp3.0\DTO.pdb
+D:\Projetos\FinancasProject\FinanceSolution\Common\obj\Debug\netcoreapp3.0\Common.csprojAssemblyReference.cache
+D:\Projetos\FinancasProject\FinanceSolution\Common\obj\Debug\netcoreapp3.0\Common.AssemblyInfoInputs.cache
+D:\Projetos\FinancasProject\FinanceSolution\Common\obj\Debug\netcoreapp3.0\Common.AssemblyInfo.cs
+D:\Projetos\FinancasProject\FinanceSolution\Common\obj\Debug\netcoreapp3.0\Common.csproj.CopyComplete
+D:\Projetos\FinancasProject\FinanceSolution\Common\obj\Debug\netcoreapp3.0\Common.dll
+D:\Projetos\FinancasProject\FinanceSolution\Common\obj\Debug\netcoreapp3.0\Common.pdb
