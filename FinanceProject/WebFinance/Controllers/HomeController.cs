@@ -75,11 +75,6 @@ namespace WebFinance.Controllers
         [HttpPost]
         public IActionResult AddAgua([FromBody]Agua pAgua)
         {
-
-            
-
-
-
             if (pAgua != null)
             {
                 _rearline.AddAgua(pAgua);
@@ -87,8 +82,6 @@ namespace WebFinance.Controllers
             }
             else
                 return Error();
-
-
         }
         [HttpPost]
         public IActionResult AddEnergia([FromBody]Energia pEnergia)
@@ -238,56 +231,6 @@ namespace WebFinance.Controllers
         [HttpGet]
         public IActionResult GetAllAgua()
         {
-            string[] arr = new string[0];
-            string returnString = "";
-            if (arr.Length == 0)
-            {
-                returnString = "no one likes this";
-            }
-
-            else if (arr.Count() == 1)
-            {
-                for (int i = 0; i < arr.Length; i++)
-                {
-                    returnString += arr[i];
-                }
-                returnString += " likes this";
-            }
-
-            else if (arr.Count() > 1 && arr.Count() < 4)
-            {
-                var lastPosition = arr.Count() - 1;
-                for (int i = 0; i < arr.Length; i++)
-                {
-                    
-                    if (i == lastPosition)
-                    {
-                        returnString = returnString.Substring(0, returnString.Length - 2) + " and ";
-                    }
-                    returnString += arr[i];
-                    returnString += ", ";
-                }
-                returnString = returnString.Substring(0, returnString.Length - 2) + " like this";
-            }
-
-            else
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    returnString += arr[i] + ", ";
-                }
-                returnString = returnString.Substring(0, returnString.Length - 2);
-                returnString += string.Format(" and {0} others like this", (arr.Count() - 2));
-            }
-
-            var a = returnString;
-
-
-
-
-
-
-
             return Json(_rearline.GetAllAgua());
         }
         [HttpGet]
